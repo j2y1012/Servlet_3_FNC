@@ -8,6 +8,37 @@ import java.util.ArrayList;
 import com.iu.util.DBConnector;
 
 public class memberDAO {
+	//selectOne
+	public memberDTO selectOne(memberDTO memberDTO)throws Exception{
+		memberDTO mDto= null;
+		Connection con = DBConnector.getConnect();
+		String sql ="select * from member where id=? and pw=? and job=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, memberDTO.getId());
+		st.setString(2, memberDTO.getPw());
+		st.setString(3, memberDTO.getJob());
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			mDto= new memberDTO();
+			mDto.setId(rs.getString("id"));
+			mDto.setPw(rs.getString("pw"));
+			mDto.setName(rs.getString("name"));
+			mDto.setEmail(rs.getString("email"));
+			mDto.setPhone(rs.getString("phone"));
+			mDto.setAge(rs.getInt("age"));
+			mDto.setJob(rs.getString("job"));
+			
+		}
+		DBConnector.disConnect(rs, st, con); 
+		return mDto;
+		
+	}
+	
+	
+	
+	
+	
 	//idCheck
 		public boolean idCheck(String id) throws Exception {
 			boolean check=true;
