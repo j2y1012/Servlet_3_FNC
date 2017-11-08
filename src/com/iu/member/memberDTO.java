@@ -1,53 +1,53 @@
 package com.iu.member;
-import java.sql.*;
+
 public class memberDTO {
-private String ID;
-private String PW;
-private String NAME;
-private String EMAIL;
-private String PHONE;
-private int AGE;
-private String JOB;
-public String getID() {
-	return ID;
+private String id;
+private String pw;
+private String name;
+private String email;
+private String phone;
+private int age;
+private String job;
+public String getId() {
+	return id;
 }
-public void setID(String iD) {
-	ID = iD;
+public void setId(String id) {
+	this.id = id;
 }
-public String getPW() {
-	return PW;
+public String getPw() {
+	return pw;
 }
-public void setPW(String pW) {
-	PW = pW;
+public void setPw(String pw) {
+	this.pw = pw;
 }
-public String getNAME() {
-	return NAME;
+public String getName() {
+	return name;
 }
-public void setNAME(String nAME) {
-	NAME = nAME;
+public void setName(String name) {
+	this.name = name;
 }
-public String getEMAIL() {
-	return EMAIL;
+public String getEmail() {
+	return email;
 }
-public void setEMAIL(String eMAIL) {
-	EMAIL = eMAIL;
+public void setEmail(String email) {
+	this.email = email;
 }
-public String getPHONE() {
-	return PHONE;
+public String getPhone() {
+	return phone;
 }
-public void setPHONE(String pHONE) {
-	PHONE = pHONE;
+public void setPhone(String phone) {
+	this.phone = phone;
 }
-public int getAGE() {
-	return AGE;
+public int getAge() {
+	return age;
 }
-public void setAGE(int aGE) {
-	AGE = aGE;
+public void setAge(int age) {
+	this.age = age;
 }
-public String getJOB() {
-	return JOB;
+public String getJob() {
+	return job;
 }
-public void setJOB(String jOB) {
-	JOB = jOB;
+public void setJob(String job) {
+	this.job = job;
 }
 }

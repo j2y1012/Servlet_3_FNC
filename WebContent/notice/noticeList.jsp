@@ -9,6 +9,12 @@
 	response.setCharacterEncoding("UTF-8");
 	String kind = request.getParameter("kind");
 	String search = request.getParameter("search");
+	if(kind==null){
+		kind="title";
+	}
+	if(search==null){
+		search="";
+	}
 	int curPage = 1;
 	try {
 		curPage = Integer.parseInt(request.getParameter("curPage"));
