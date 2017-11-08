@@ -1,3 +1,4 @@
+<%@page import="com.iu.member.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,6 +24,12 @@
 	
 	<!-- main 시작 -->
 	<section id="main">
+		<% memberDTO memberDTO=(memberDTO)request.getAttribute("member"); %>
+		<% if(memberDTO != null){ %>
+			<h1>Login Success</h1>
+		<%}else { %>
+			<h1>BeFore Login</h1>
+		<%} %>
 		<div id="mainContents">
 			<article id="mainImage">
 				<img src="./images/main/main.jpg">
