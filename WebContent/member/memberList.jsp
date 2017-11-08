@@ -104,11 +104,11 @@
 					</tr>
 				</thead>
 				<tbody>
-					<%for(memberDTO memberDTO :ar){ %>
+					<%for(memberDTO MemberDTO :ar){ %>
 						<tr>
-							<td><%= memberDTO.getId() %> </td>
-							<td><%= memberDTO.getPw() %> </td>
-							<td><%= memberDTO.getEmail()%> </td>
+							<td><%= memberDTO.getId() %></td>
+							<td><%= memberDTO.getName() %> </td>
+							<td><%= memberDTO.getEmail() %> </td>
 							<td><%= memberDTO.getPhone() %> </td>
 							<td><%= memberDTO.getAge() %> </td>
 						</tr>

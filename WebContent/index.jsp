@@ -24,13 +24,6 @@
 	
 	<!-- main 시작 -->
 	<section id="main">
-		<% memberDTO memberDTO=(memberDTO)session.getAttribute("member"); %>
-		<% if(memberDTO != null){ %>
-			<h1>Login Success</h1>
-			<a href="./member/memberLogout.jsp">LogOut</a>
-		<%}else { %>
-			<h1>BeFore Login</h1>
-		<%} %>
 		<div id="mainContents">
 			<article id="mainImage">
 				<img src="./images/main/main.jpg">

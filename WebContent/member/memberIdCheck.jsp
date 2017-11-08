@@ -41,8 +41,7 @@
 		if (check) {
 	%>
 	<button>사용하기</button>
-	<%
-		}
-	%>
+	<%	} %>
+	
 </body>
 </html>

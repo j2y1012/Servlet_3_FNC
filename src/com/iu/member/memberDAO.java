@@ -22,7 +22,7 @@ public class memberDAO {
 		if(rs.next()) {
 			mDto= new memberDTO();
 			mDto.setId(rs.getString("id"));
-			mDto.setPw(rs.getString("pw"));
+			
 			mDto.setName(rs.getString("name"));
 			mDto.setEmail(rs.getString("email"));
 			mDto.setPhone(rs.getString("phone"));
@@ -105,7 +105,6 @@ public class memberDAO {
 		while(rs.next()) {
 			memberDTO memberDTO = new memberDTO();
 			memberDTO.setId(rs.getString("id"));
-			memberDTO.setPw(rs.getString("pw"));
 			memberDTO.setName(rs.getString("name"));
 			memberDTO.setEmail(rs.getString("email"));
 			memberDTO.setPhone(rs.getString("phone"));

@@ -1,3 +1,4 @@
+<%@page import="com.iu.member.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -15,8 +16,14 @@
 			</nav>
 			<div class="hdSubMenu">
 				<ul>
-					<li><a href="<%=request.getContextPath()%>/member/memberLoginForm.jsp">LOGIN</a></li>
-					<li><a href="<%=request.getContextPath()%>/member/memberJoinForm.jsp">JOIN</a></li>
+					<% memberDTO memberDTO =(memberDTO)session.getAttribute("member"); %>
+					<%if(memberDTO == null){ %>
+					<li><a href="<%= request.getContextPath()%>/member/memberLoginForm.jsp">LOGIN</a></li>
+					<li><a href="<%= request.getContextPath()%>/member/memberJoinForm.jsp">JOIN</a></li>
+					<%}else { %>
+					<li><a href="<%= request.getContextPath()%>/member/memberLogout.jsp">LOGOUT</a></li>
+					<li><a href="<%= request.getContextPath()%>/member/memberMyPage.jsp">MyPage</a></li>
+					<%} %>
 					<li><a href="#">KO</a></li>
 					<li><a href="#">EN</a></li>
 					<li><a href="#">JP</a></li>
@@ -27,3 +34,4 @@
 		</div>
 		
 	</header>
+	
