@@ -24,7 +24,7 @@
 	
 	<!-- main 시작 -->
 	<section id="main">
-		<% memberDTO memberDTO=(memberDTO)request.getAttribute("member"); %>
+		<% memberDTO memberDTO=(memberDTO)session.getAttribute("member"); %>
 		<% if(memberDTO != null){ %>
 			<h1>Login Success</h1>
 		<%}else { %>
