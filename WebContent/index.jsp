@@ -27,6 +27,7 @@
 		<% memberDTO memberDTO=(memberDTO)session.getAttribute("member"); %>
 		<% if(memberDTO != null){ %>
 			<h1>Login Success</h1>
+			<a href="./member/memberLogout.jsp">LogOut</a>
 		<%}else { %>
 			<h1>BeFore Login</h1>
 		<%} %>
