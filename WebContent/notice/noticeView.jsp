@@ -53,8 +53,13 @@
 				</tr>
 			</tbody>
 		</table>
+		<%
+		try{	
+		if(memberDTO.getId().equals(noticeDTO.getWriter())){ %>
 		<a class="btn btn-info" href="./noticeDelete.jsp?num=<%=noticeDTO.getNum()%>">Delete</a>
 		<a class="btn btn-info" href="./noticeUpdateForm.jsp?num=<%=noticeDTO.getNum()%>">Update</a>
+		<%}
+		}catch (Exception e){} %>
 		<a class="btn btn-info" href="./noticeList.jsp">List</a>
 
 	</section>

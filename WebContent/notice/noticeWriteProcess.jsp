@@ -18,10 +18,10 @@
 	}
 	request.setAttribute("message", s);
 	//1 Foward
-	//RequestDispatcher view = request.getRequestDispatcher("../common/result.jsp");
-	//view.forward(request, response);
+	RequestDispatcher view = request.getRequestDispatcher("../common/result.jsp");
+	view.forward(request, response);
 	//2.redirect
-	response.sendRedirect("../common/result.jsp");
+	//response.sendRedirect("../common/result.jsp");
 	
 	
 	

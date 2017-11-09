@@ -8,21 +8,32 @@ import java.util.ArrayList;
 import com.iu.util.DBConnector;
 
 public class memberDAO {
+	//delete
+	public int delete(String id) throws Exception{
+		Connection con = DBConnector.getConnect();
+		String sql = "delete member where id=?" ;
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, id);
+		int result = st.executeUpdate();
+		DBConnector.disConnect(st, con);
+		return result;
+	}
 	//selectOne
 	public memberDTO selectOne(memberDTO memberDTO)throws Exception{
 		memberDTO mDto= null;
 		Connection con = DBConnector.getConnect();
 		String sql ="select * from member where id=? and pw=? and job=?";
 		PreparedStatement st = con.prepareStatement(sql);
+		System.out.println("aa");
 		st.setString(1, memberDTO.getId());
 		st.setString(2, memberDTO.getPw());
 		st.setString(3, memberDTO.getJob());
 		ResultSet rs = st.executeQuery();
-		
+		System.out.println("ss");
 		if(rs.next()) {
+			
 			mDto= new memberDTO();
 			mDto.setId(rs.getString("id"));
-			
 			mDto.setName(rs.getString("name"));
 			mDto.setEmail(rs.getString("email"));
 			mDto.setPhone(rs.getString("phone"));

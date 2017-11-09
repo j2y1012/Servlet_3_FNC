@@ -11,6 +11,8 @@
 	memberDTO.setJob(request.getParameter("job"));
 	String save = request.getParameter("save");
 	
+	
+	
 	if(save != null){
 		Cookie c = new Cookie("id", memberDTO.getId());
 		c.setMaxAge(60*10);
@@ -23,6 +25,7 @@
 	
 	memberDAO memberDAO = new memberDAO();
 	memberDTO = memberDAO.selectOne(memberDTO);
+	//System.out.println(memberDTO.getId()+"asfasdf");
 	
 	String path = "./memberLoginForm.jsp";
 	if(memberDTO != null){
