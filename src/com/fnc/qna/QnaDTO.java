@@ -1,15 +1,15 @@
-package com.iu.notice;
+package com.fnc.qna;
 
 import java.sql.Date;
-import java.util.ArrayList;
 
-public class NoticeDTO {
+public class QnaDTO {
 	private int num;
 	private String title;
-	private String writer;
 	private String contents;
-	private Date reg_date;
+	private String writer;
 	private int hit;
+	private Date reg_date;
+	
 	
 	public int getNum() {
 		return num;
@@ -23,23 +23,17 @@ public class NoticeDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
 	public String getContents() {
 		return contents;
 	}
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Date getReg_date() {
-		return reg_date;
+	public String getWriter() {
+		return writer;
 	}
-	public void setReg_date(Date reg_date) {
-		this.reg_date = reg_date;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public int getHit() {
 		return hit;
@@ -47,6 +41,12 @@ public class NoticeDTO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	
-	
+	public Date getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
+	}
 }
+
+

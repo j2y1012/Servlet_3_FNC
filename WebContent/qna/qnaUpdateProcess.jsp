@@ -1,18 +1,18 @@
-<%@page import="com.iu.notice.NoticeDAO"%>
-<%@page import="com.iu.notice.NoticeDTO"%>
+<%@page import="com.fnc.qna.QnaDAO"%>
+<%@page import="com.fnc.qna.QnaDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 	
-	NoticeDTO noticeDTO = new NoticeDTO();
-	noticeDTO.setNum(Integer.parseInt(request.getParameter("num")));
-	noticeDTO.setTitle(request.getParameter("title"));
-	noticeDTO.setContents(request.getParameter("contents"));
+	QnaDTO qnaDTO = new QnaDTO();
+	qnaDTO.setNum(Integer.parseInt(request.getParameter("num")));
+	qnaDTO.setTitle(request.getParameter("title"));
+	qnaDTO.setContents(request.getParameter("contents"));
 	
-	NoticeDAO noticeDAO = new NoticeDAO();
-	int result = noticeDAO.update(noticeDTO);
+	QnaDAO qnaDAO = new QnaDAO();
+	int result = qnaDAO.update(qnaDTO);
 	
 	String s = "Fail";
 	if(result>0){
@@ -27,7 +27,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	alert('<%=s%>');
-	location.href="noticeList.jsp";
+	location.href="qnaList.jsp";
 </script>
 </head>
 <body>

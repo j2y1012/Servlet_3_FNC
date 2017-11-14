@@ -1,5 +1,16 @@
+<%@page import="com.fnc.qna.QnaDTO"%>
+<%@page import="com.fnc.qna.QnaDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+int num = Integer.parseInt(request.getParameter("num"));
+
+QnaDAO qnaDAO = new QnaDAO();
+QnaDTO qnaDTO = qnaDAO.selectOne(num);
+%>	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,19 +31,15 @@
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
+	
 	<section id="main">
-		<form class="form-horizontal" action="noticeWriteProcess.jsp" method="post">
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="writer">WRITER:</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="writer" name="writer"
-						placeholder="Enter Writer">
-				</div>
-			</div>
+		<form class="form-horizontal" action="qnaUpdateProcess.jsp" method="post">
+			<input type="hidden" name="num" value="<%=qnaDTO.getNum()%>">
+
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="Title">TITLE:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="title" name="title"
+					<input type="text" class="form-control" value="<%=qnaDTO.getTitle() %>" id="title" name="title"
 						placeholder="Enter Title">
 				</div>
 			</div>
@@ -40,7 +47,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="Contents">CONTENTS:</label>
 				<div class="col-sm-10">
-					<textarea class="form-control" rows="5" id="contents" name="contents"></textarea>
+					<textarea class="form-control" rows="5" id="contents" name="contents"><%=qnaDTO.getContents()%></textarea>
 				</div>
 			</div>
 			

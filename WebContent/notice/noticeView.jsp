@@ -1,3 +1,6 @@
+<%@page import="com.iu.files.FileDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.iu.files.FileDAO"%>
 <%@page import="com.iu.notice.NoticeDTO"%>
 <%@page import="com.iu.notice.NoticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,6 +12,8 @@
 	NoticeDAO noticeDAO = new NoticeDAO();
 	int result = noticeDAO.hitUpdate(num);
 	NoticeDTO noticeDTO = noticeDAO.selectOne(num);
+	FileDAO fileDAO = new FileDAO();
+	ArrayList<FileDTO> ar = fileDAO.selectList(num);
 	
 %>
 <!DOCTYPE html>
@@ -53,6 +58,16 @@
 				</tr>
 			</tbody>
 		</table>
+		
+		<div>
+			<% for(int i=0;i<ar.size();i++){ %>
+				<p>
+					<a href="../upload/<%= ar.get(i).getfName()%>"><%= ar.get(i).getoName() %></a>			
+				</p>
+			<%} %>
+		
+		</div>
+		
 		<%
 		try{	
 		if(memberDTO.getId().equals(noticeDTO.getWriter())){ %>
@@ -61,6 +76,8 @@
 		<%}
 		}catch (Exception e){} %>
 		<a class="btn btn-info" href="./noticeList.jsp">List</a>
+		
+
 
 	</section>
 	<%@ include file="../temp/footer.jsp"%>

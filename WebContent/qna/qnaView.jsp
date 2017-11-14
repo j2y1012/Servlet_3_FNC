@@ -1,14 +1,14 @@
-<%@page import="com.iu.notice.NoticeDTO"%>
-<%@page import="com.iu.notice.NoticeDAO"%>
+<%@page import="com.fnc.qna.QnaDTO"%>
+<%@page import="com.fnc.qna.QnaDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 	int num = Integer.parseInt(request.getParameter("num"));
-	NoticeDAO noticeDAO = new NoticeDAO();
-	int result = noticeDAO.hitUpdate(num);
-	NoticeDTO noticeDTO = noticeDAO.selectOne(num);
+	QnaDAO qnaDAO = new QnaDAO();
+	int result = qnaDAO.hitUpdate(num);
+	QnaDTO qnaDTO = qnaDAO.selectOne(num);
 	
 %>
 <!DOCTYPE html>
@@ -43,19 +43,23 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><%=noticeDTO.getTitle()%></td>
-					<td><%=noticeDTO.getWriter()%></td>
-					<td><%=noticeDTO.getReg_date()%></td>
-					<td><%=noticeDTO.getHit()%></td>
+					<td><%=qnaDTO.getTitle()%></td>
+					<td><%=qnaDTO.getWriter()%></td>
+					<td><%=qnaDTO.getReg_date()%></td>
+					<td><%=qnaDTO.getHit()%></td>
 				</tr>
 				<tr>
-					<td colspan="4"><%=noticeDTO.getContents()%></td>
+					<td colspan="4"><%=qnaDTO.getContents()%></td>
 				</tr>
 			</tbody>
 		</table>
-		<a class="btn btn-info" href="./noticeDelete.jsp?num=<%=noticeDTO.getNum()%>">Delete</a>
-		<a class="btn btn-info" href="./noticeUpdateForm.jsp?num=<%=noticeDTO.getNum()%>">Update</a>
-		<a class="btn btn-info" href="./noticeList.jsp">List</a>
+		<%try{ %>
+		<%if(memberDTO.getId().equals(qnaDTO.getWriter())) {%>
+		<a class="btn btn-info" href="./qnaDelete.jsp?num=<%=qnaDTO.getNum()%>">Delete</a>
+		<a class="btn btn-info" href="./qnaUpdateForm.jsp?num=<%=qnaDTO.getNum()%>">Update</a>
+		<%} %>
+		<%}catch(Exception e){} %>
+		<a class="btn btn-info" href="./qnaList.jsp">List</a>
 
 	</section>
 	<%@ include file="../temp/footer.jsp"%>
